@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li style="float:left;"><a href="/">TournieTing</a></li>
+                <li style="float:right;">{% block right_nav %}{% endblock %}</li>
+            </ul>
+        </nav>
+
+        {% block content %}{% endblock %}
+        {% block js %}{% endblock %}
+    </body>
+</html>

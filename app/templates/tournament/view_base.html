@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="links">
+    <a href="{{url_for('tournament.ranks', id=tournament.id)}}">Ranks</a>
+    <a href="{{url_for('tournament.games', id=tournament.id)}}">Games</a>
+    {% block nav_links %}{% endblock %}
+</div>
+
+{% block view %}{% endblock %}
+{% endblock %}

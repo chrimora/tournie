@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <form id="account_form" method="post">
+        <div class="tab">
+            <h2>Account</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="messages">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <label for="name">Name</label>
+            <input name="name" id="name">
+            <label for="pass">Password</label>
+            <input name="pass" id="pass" type="password">
+        </div>
+
+        <div class="tab">
+            <h2>Tournament</h2>
+            <label for="type">Type</label>
+            <select name="type" id="type">
+                {% for t in types %}
+                    <option value="{{t.id}}">{{t.name}}</option>
+                {% endfor %}
+            </select><label for="players">Players</label>
+            <textarea name="players" id="players" placeholder="Type each players name on a new line..."></textarea>
+        </div>
+
+        <button type="button" id="next_btn" onclick="nextPrev(1)">Next</button>
+    </form>
+{% endblock %}

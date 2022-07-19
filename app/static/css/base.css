@@ -1,0 +1,49 @@
+#navbar > ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--background);
+}
+#navbar > ul > li > a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#navbar > ul > li > a:hover {
+  background-color: var(--button-hover);
+}
+
+/* Signup */
+.tab {
+    display: none;
+}
+
+/* View Base */
+.links > a {
+    text-decoration: underline;
+    padding: 16px;
+}
+
+/* Games */
+.game {
+    display: inline-block;
+    padding: 0 10px;
+}
+.result {
+    display: block;
+    width: 100%;
+    color: var(--text-main);
+    background-color: transparent;
+    border-radius: 0;
+    padding: 5px 0;
+    margin: 0;
+    text-align: center;
+}
+.True {
+    background-color: green;
+}
+.False {
+    background-color: red;
+}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block right_nav %}<a href="{{ url_for('account.signup') }}">New Tournament</a>{% endblock %}
+
+{% block content %}
+    <h1>Tournaments</h1>
+    <ul>
+    {% for t in tournaments %}
+        <li><a href="{{url_for('tournament.ranks', id=t.id)}}">{{t.account.name}}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'view_base.html' %}
+
+{% block right_nav %}<a href="{{ url_for('tournament.list') }}">Tournaments</a>{% endblock %}
+
+{% block view %}
+<table>
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Wins</th>
+            <th>Losses</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for player in players %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{player[0]}}</td>
+            <td>{{player[1]}}</td>
+            <td>{{player[2]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

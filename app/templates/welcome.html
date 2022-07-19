@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block right_nav %}<a href="{{ url_for('tournament.list') }}">Tournaments</a>{% endblock %}
+
+{% block content %}
+<h2>
+    Hello world!
+</h2>
+<p>
+    I made a quick tournament creation and tracker to play with/manage socials
+    allowing easy viewing and updating!
+</p>
+<p>
+    You can get started <a href="{{ url_for('account.signup') }}">here!</a>
+</p>
+{% endblock %}

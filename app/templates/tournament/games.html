@@ -1,0 +1,53 @@
+{% extends 'view_base.html' %}
+
+{% block right_nav %}<a href="{{ url_for('tournament.list') }}">Tournaments</a>{% endblock %}
+
+{% block nav_links %}
+    <a style="float:right;" href="{{ url_for('tournament.games_edit', id=tournament.id) }}">Edit</a>
+{% endblock %}
+
+{% block view %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="messages">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+    {% if edit %}
+    <p>
+        Click on a player to set them as the winner of a match.
+    </p>
+    {% endif %}
+    {% for round in rounds %}
+        <h3>Round {{loop.index}}</h3>
+        {% for game in round %}
+            <div class="game">
+            <h4>Game {{loop.index}}</h4>
+                {% if edit %}
+                    <form method="post" onsubmit="return confirm('Are you sure?');">
+                {% endif %}
+                {% for result in game %}
+                    {% if result.won in [True, False] %}
+                        <div class="result {{result.won}}">
+                            {{result.name}}
+                        </div>
+                    {% else %}
+                        {% if edit %}
+                        <button name="resultid" value="{{result.id}}" class="result">
+                            {{result.name}}
+                        </button>
+                        {% else %}
+                        <div class="result">
+                            {{result.name}}
+                        </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if edit %}
+                    </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
